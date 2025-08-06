@@ -1,4 +1,5 @@
 #pragma once
+#include "Player.h"
 
 namespace Tmpl8 {
 
@@ -13,10 +14,11 @@ public:
 	void MouseUp( int button ) { /* implement if you want to detect mouse button presses */ }
 	void MouseDown( int button ) { /* implement if you want to detect mouse button presses */ }
 	void MouseMove( int x, int y ) { /* implement if you want to detect mouse movement */ }
-	void KeyUp( int key ) { /* implement if you want to handle keys */ }
-	void KeyDown( int key ) { /* implement if you want to handle keys */ }
+	void KeyUp(int key) { player.keyUp(key); }
+	void KeyDown(int key) { player.keyDown(key); }
 private:
 	Surface* screen;
+	Player player;
 };
 
 }; // namespace Tmpl8
