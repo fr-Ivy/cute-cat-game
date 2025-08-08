@@ -11,6 +11,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Player</Filter>
     </ClCompile>
+    <ClCompile Include="map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -23,6 +26,9 @@
     <ClInclude Include="Player.h">
       <Filter>Player</Filter>
     </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
@@ -30,6 +36,9 @@
     </Filter>
     <Filter Include="Player">
       <UniqueIdentifier>{219512a9-4e60-4220-8862-eef78827c728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{927f9b3f-bc25-44c3-944a-d171be339e92}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
