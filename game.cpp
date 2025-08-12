@@ -14,7 +14,7 @@ namespace Tmpl8
 	//Surface grass("assets/the_cat_pack/Tilesets/Grass.png");
 
 	Sprite cat_forward(new Surface("assets/the_cat_pack/Characters/walking_cat3.png"), 16);
-	map gameMap;
+	map gameMap(grass, hills);
 
 	void Game::Init()
 	{
@@ -30,7 +30,7 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		screen->Clear(0);
-		gameMap.Draw(screen, grass, hills);
+		gameMap.Draw(screen);
 
 		player.moving(deltaTime);
 		player.draw(*screen);
