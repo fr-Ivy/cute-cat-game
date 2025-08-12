@@ -20,15 +20,9 @@ public:
     // Tekent beide layers
     void Draw(Surface* screen);
 
-private:
-    // Functie om een layer te tekenen
     void DrawLayer(Surface* screen, Surface& tiles, char layer[MAP_ROWS][MAP_COLS * 3 + 1]);
-
-    // Geschaalde tilesets (vooraf berekend, sneller tekenen)
-    Surface scaledTiles1;
-    Surface scaledTiles2;
+    void Draw(Surface* screen, Surface& tiles1, Surface& tiles2);
 
     // Map-data (string-array voor tile-indexen)
     char layer1[MAP_ROWS][MAP_COLS * 3 + 1];
-    char layer2[MAP_ROWS][MAP_COLS * 3 + 1];
 };
