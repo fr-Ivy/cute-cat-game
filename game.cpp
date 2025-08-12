@@ -30,7 +30,7 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		screen->Clear(0);
-		gameMap.Draw(screen, grass, hills);
+		gameMap.Draw(screen, grass);
 
 		player.moving(deltaTime);
 		player.draw(*screen);
