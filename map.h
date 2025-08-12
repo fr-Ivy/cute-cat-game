@@ -14,8 +14,10 @@ public:
 
     map();
 
-    void Draw(Surface* screen, Surface& tiles);
+    void DrawLayer(Surface* screen, Surface& tiles, char layer[MAP_ROWS][MAP_COLS * 3 + 1]);
+    void Draw(Surface* screen, Surface& tiles1, Surface& tiles2);
 
 private:
     char layer1[MAP_ROWS][MAP_COLS * 3 + 1];
+    char layer2[MAP_ROWS][MAP_COLS * 3 + 1];
 };
