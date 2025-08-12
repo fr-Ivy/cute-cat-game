@@ -40,13 +40,8 @@ void map::Draw(Surface* screen, Surface& tiles)
     {
         for (int x = 0; x < MAP_COLS; x++)
         {
-
-            int tx = layer[y][x * 3] - 'a';
-            int ty = layer[y][x * 3 + 1] - 'a';
-
-
-            if (tx == ('z' - 'a') && ty == ('z' - 'a'))
-                continue;
+            int tx = layer1[y][x * 3] - 'a';
+            int ty = layer1[y][x * 3 + 1] - 'a';
 
             Pixel* srcBase = tiles.GetBuffer() + tx * TILE_SIZE + (ty * TILE_SIZE) * tilesetWidth;
             int drawX = x * RENDER_TILE_SIZE;
@@ -71,10 +66,4 @@ void map::Draw(Surface* screen, Surface& tiles)
             }
         }
     }
-}
-
-void map::Draw(Surface* screen, Surface& tiles1, Surface& tiles2)
-{
-    DrawLayer(screen, tiles1, layer1);
-    DrawLayer(screen, tiles2, layer2);
 }
