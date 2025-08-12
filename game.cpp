@@ -14,13 +14,13 @@ namespace Tmpl8
 	//Surface grass("assets/the_cat_pack/Tilesets/Grass.png");
 
 	Sprite cat_forward(new Surface("assets/the_cat_pack/Characters/walking_cat3.png"), 16);
-	map gameMap(grass, hills);
+	map gameMap;
 
 	void Game::Init()
 	{
 		player = Player(&cat_forward, 0, 0);
 	}
-	
+
 
 	void Game::Shutdown()
 	{
@@ -30,7 +30,7 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		screen->Clear(0);
-		gameMap.Draw(screen, grass);
+		gameMap.Draw(screen, grass, hills);
 
 		player.moving(deltaTime);
 		player.draw(*screen);
