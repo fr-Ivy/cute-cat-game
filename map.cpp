@@ -4,7 +4,7 @@
 // Hulpfunctie om een tileset vooraf te schalen
 Surface ScaleTileset(Surface& original, int scale)
 {
-    const char temp1[MAP_ROWS][MAP_COLS * 3 + 1] =
+    const char temp[MAP_ROWS][MAP_COLS * 3 + 1] =
     {
         "aa ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ba ca",
         "ab bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb cb",
@@ -24,27 +24,6 @@ Surface ScaleTileset(Surface& original, int scale)
         "ac bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc bc cc"
     };
 
-    const char temp2[MAP_ROWS][MAP_COLS * 3 + 1] =
-    {
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz ",
-        "zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz zz "
-
-    };
-
 
     for (int r = 0; r < MAP_ROWS; r++)
         for (int c = 0; c < MAP_COLS * 3 + 1; c++)
@@ -61,13 +40,8 @@ void map::Draw(Surface* screen, Surface& tiles)
     {
         for (int x = 0; x < MAP_COLS; x++)
         {
-
-            int tx = layer[y][x * 3] - 'a';
-            int ty = layer[y][x * 3 + 1] - 'a';
-
-
-            if (tx == ('z' - 'a') && ty == ('z' - 'a'))
-                continue;
+            int tx = layer1[y][x * 3] - 'a';
+            int ty = layer1[y][x * 3 + 1] - 'a';
 
             // Startadres van de tile in de geschaalde tileset
             Pixel* srcBase = tiles.GetBuffer() + tx * RENDER_TILE_SIZE + (ty * RENDER_TILE_SIZE) * tilesetWidth;
@@ -84,10 +58,4 @@ void map::Draw(Surface* screen, Surface& tiles)
             }
         }
     }
-}
-
-void map::Draw(Surface* screen, Surface& tiles1, Surface& tiles2)
-{
-    DrawLayer(screen, tiles1, layer1);
-    DrawLayer(screen, tiles2, layer2);
 }
