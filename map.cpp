@@ -43,14 +43,13 @@ void map::Draw(Surface* screen, Surface& tiles)
             int tx = layer1[y][x * 3] - 'a';
             int ty = layer1[y][x * 3 + 1] - 'a';
 
-            // Startadres van de tile in de geschaalde tileset
-            Pixel* srcBase = tiles.GetBuffer() + tx * RENDER_TILE_SIZE + (ty * RENDER_TILE_SIZE) * tilesetWidth;
 
-            // Startadres op het scherm
-            Pixel* dstBase = screen->GetBuffer() + x * RENDER_TILE_SIZE + (y * RENDER_TILE_SIZE) * screenWidth;
 
-            // Kopieer hele rijen in één keer
-            for (int row = 0; row < RENDER_TILE_SIZE; row++)
+            Pixel* srcBase = tiles.GetBuffer() + tx * TILE_SIZE + (ty * TILE_SIZE) * tilesetWidth;
+            int drawX = x * RENDER_TILE_SIZE;
+            int drawY = y * RENDER_TILE_SIZE;
+
+            for (int i = 0; i < TILE_SIZE; i++)
             {
                 memcpy(dstBase + row * screenWidth,
                     srcBase + row * tilesetWidth,
